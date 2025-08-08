@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Moodverse - Mood Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+      text-align: center;
+    }
+    #galaxy {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      border: 1px solid white;
+      margin-top: 20px;
+      overflow: hidden;
+    }
+    .star {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      position: absolute;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <h1>🌌 Moodverse</h1>
+
+
+  <select id="mood-select">
+    <option value="">Select your mood</option>
+    <option value="happy">Happy</option>
+    <option value="sad">Sad</option>
+    <option value="angry">Angry</option>
+    <option value="calm">Calm</option>
+    <option value="excited">Excited</option>
+    <option value="loved">Loved</option>
+    <option value="anxious">Anxious</option>
+    <option value="bored">Bored</option>
+    <option value="heartbroken">Heartbroken</option>
+    <option value="lonely">Lonely</option>
+    <option value="motivated">Motivated</option>
+    <option value="tired">Tired</option>
+  </select>
+
+<button id="submitMood">Submit</button>
+<button onclick="location.reload()">Clear</button>
+
+
+  <div id="galaxy"></div>
+
+  <script>
+    // Save selected mood
+    function saveMood() {
+      const moodSelect = document.getElementById("mood-select");
+      const selectedMood = moodSelect.value;
+
+      if (!selectedMood) {
+        alert("Please select a mood!");
+        return;
+      }
+
+      const today = new Date().toLocaleDateString();
+      const moodHistory = JSON.parse(localStorage.getItem("moodHistory")) || [];
+      moodHistory.push({ mood: selectedMood, date: today });
+      localStorage.setItem("moodHistory", JSON.stringify(moodHistory));
+
+      displayMoodGalaxy();
+    }
+
+    // Display stars based on saved moods
+    function displayMoodGalaxy() {
+      const galaxy = document.getElementById("galaxy");
+      galaxy.innerHTML = "";
+
+      const moodData = JSON.parse(localStorage.getItem("moodHistory")) || [];
+
+      moodData.forEach(entry => {
+        const star = document.createElement("div");
+        star.classList.add("star");
+
+        // Random star position
+        star.style.top = Math.random() * 380 + "px";
+        star.style.left = Math.random() * 98 + "%";
+
+        // Color based on mood
+        const moodColors = {
+          happy: "gold",
+          sad: "dodgerblue",
+          angry: "orangered",
+          calm: "lightgreen",
+          excited: "violet",
+          loved: "tomato",
+          anxious: "skyblue",
+          bored: "gray",
+          heartbroken: "plum",
+          lonely: "mediumslateblue",
+          motivated: "limegreen",
+          tired: "slategray"
+        };
+
+        const color = moodColors[entry.mood.toLowerCase()] || "white";
+        star.style.backgroundColor = color;
+        star.title = `${entry.date} - ${entry.mood}`;
+        galaxy.appendChild(star);
+      });
+    }
+
+    // Load galaxy on page load
+    window.onload = displayMoodGalaxy;
+  </script>
+  
+
+
+  
+</body>
+</html>
+ 

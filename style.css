@@ -1,0 +1,84 @@
+/* === Galaxy Background === */
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(ellipse at center, #1a0023 0%, #000000 100%);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+/* === Page Title === */
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2em;
+  color: #f0c9ff;
+}
+
+/* === Mood Form === */
+#moodForm {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#moodInput {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#submitMood {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #a64bf4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#submitMood:hover {
+  background-color: #832de0;
+}
+
+/* === Galaxy Display === */
+#galaxy {
+  position: relative;
+  height: 500px;
+  margin: 40px auto;
+  width: 90%;
+  border: 1px solid #ffffff1a;
+  border-radius: 10px;
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  background-size: contain;
+  overflow: hidden;
+}
+
+/* === Star Mood === */
+.star {
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.star:hover {
+  transform: scale(1.5);
+}
+
+/* === Mood Message === */
+#moodMessage {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+  color: #f0f0f0;
+  min-height: 24px;
+  transition: opacity 0.3s ease;
+}
+
