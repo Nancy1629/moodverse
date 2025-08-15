@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const myButton = document.getElementById('my-button');
  myButton.addEventListener('click', function (e) {
     e.preventDefault();
+  
 
     const mood = moodInput.value.trim();
     if (mood === '') {
@@ -62,20 +63,27 @@ document.addEventListener('DOMContentLoaded', function () {
         star.classList.add('star');
         star.title = mood;
           }
-    function submitForm() {
-         createStar(); 
+ 
 
-        // Random position inside the galaxy
+        
         star.style.top = Math.random() * 95 + '%';
         star.style.left = Math.random() * 95 + '%';
 
         galaxy.appendChild(star);
+    
  
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("submit-btn").addEventListener("click", function () {
+        createStar(); 
+    });
+});
+
 
 
 
 
 });
+
 
 
 
