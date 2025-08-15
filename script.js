@@ -68,9 +68,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         galaxy.appendChild(star);
     }
+    function submitForm() {
+    alert("Submit button clicked!");
+}
+
 
 
 });
+
 
 
 
