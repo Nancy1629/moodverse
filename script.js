@@ -61,20 +61,22 @@ document.addEventListener('DOMContentLoaded', function () {
         const star = document.createElement('div');
         star.classList.add('star');
         star.title = mood;
+          }
+    function submitForm() {
+         createStar(); 
 
         // Random position inside the galaxy
         star.style.top = Math.random() * 95 + '%';
         star.style.left = Math.random() * 95 + '%';
 
         galaxy.appendChild(star);
-    }
-    function submitForm() {
-    alert("Submit button clicked!");
-}
+ 
+
 
 
 
 });
+
 
 
 
