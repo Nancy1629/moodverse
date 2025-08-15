@@ -75,14 +75,13 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("submit-btn").addEventListener("click", function () {
         createStar(); 
-    });
-});
 
 
 
 
 
 });
+
 
 
 
