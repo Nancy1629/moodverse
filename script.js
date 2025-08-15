@@ -5,9 +5,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const message = document.getElementById('message');
     const galaxy = document.getElementById('galaxy');
     const myButton = document.getElementById('my-button');
-    myButton.addEventListener('click', function() {
-        alert("Button clicked!");
-    }); 
+ myButton.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const mood = moodInput.value.trim();
+    if (mood === '') {
+        message.textContent = "Please enter a mood.";
+        return;
+    }
+
+    saveMood(mood);
+    message.textContent = getMoodMessage(mood);
+    form.reset();
+});
+
 
   
 
@@ -60,5 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
+
 
 
